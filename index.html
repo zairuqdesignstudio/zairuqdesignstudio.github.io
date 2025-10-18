@@ -83,30 +83,6 @@
         }
       }
 
-#visiting-card {
-  text-align: center;
-  margin: 50px auto;
-  max-width: 800px;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
-}
-
-.slides img {
-  width: 100%;
-  flex-shrink: 0;
-  border-radius: 15px;
-}
-
 .prev, .next {
   position: absolute;
   top: 50%;
@@ -114,17 +90,19 @@
   background: rgba(0,0,0,0.4);
   color: white;
   border: none;
-  font-size: 24px;
-  padding: 10px 15px;
+  font-size: 18px;  /* smaller size */
+  padding: 6px 10px; /* smaller padding */
   cursor: pointer;
   border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
-.prev { left: 15px; }
-.next { right: 15px; }
-.prev:hover, .next:hover { background: rgba(0,0,0,0.6); }
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.6);
+}
 
-
+.prev { left: 10px; }
+.next { right: 10px; }
 
 
       nav a:hover {color: var(--accent);}
@@ -348,17 +326,43 @@ const slides = document.querySelector('.slides');
 const images = document.querySelectorAll('.slides img');
 let index = 0;
 
+function updateSlide() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Button navigation
 document.querySelector('.next').addEventListener('click', () => {
   index = (index + 1) % images.length;
-  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateSlide();
 });
 
 document.querySelector('.prev').addEventListener('click', () => {
   index = (index - 1 + images.length) % images.length;
-  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateSlide();
+});
+
+// Touch swipe navigation (mobile)
+let startX = 0;
+let endX = 0;
+
+slides.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+slides.addEventListener('touchmove', (e) => {
+  endX = e.touches[0].clientX;
+});
+
+slides.addEventListener('touchend', () => {
+  if (startX - endX > 50) { // swipe left
+    index = (index + 1) % images.length;
+    updateSlide();
+  } else if (endX - startX > 50) { // swipe right
+    index = (index - 1 + images.length) % images.length;
+    updateSlide();
+  }
 });
 </script>
-
 
 </body>
 </html>
