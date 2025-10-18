@@ -1,214 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZAIRUQ DESIGN STUDIO</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    :root{
-      --primary:#00b8c4;
-      --dark:#0b1417;
-      --accent:#00e6f6;
-      --light:#f5f8f9;
-    }
-    body{background:var(--light);color:var(--dark);overflow-x:hidden;}
-    header{
-      background:var(--dark);
-      color:white;
-      padding:10px 20px;
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      display:flex;align-items:center;justify-content:space-between;
-      box-shadow:0 3px 10px rgba(0,0,0,0.3);
-    }
-    .logo{display:flex;align-items:center;gap:10px;}
-    .logo img{height:40px;width:40px;border-radius:50%;}
-    .logo span{font-size:18px;font-weight:600;}
-    .logo .accent{color:var(--accent);}
-    nav a{color:white;text-decoration:none;margin:0 8px;font-weight:500;}
-    nav a:hover{color:var(--accent);}
-    .hero{
-      margin-top:70px;
-      background:linear-gradient(135deg,#07252d,#103840);
-      color:white;
-      text-align:center;
-      padding:80px 20px;
-    }
-    .hero h1{font-size:28px;color:var(--accent);margin-bottom:10px;}
-    .hero p{color:#d1e3e5;margin-bottom:20px;}
-    .hero a{
-      background:var(--accent);color:#fff;text-decoration:none;
-      padding:10px 22px;border-radius:6px;font-weight:600;transition:0.3s;
-    }
-    .hero a:hover{background:var(--primary);}
-    /* SERVICES SECTION */
-    .services{
-      padding:60px 15px;
-      background:#fff;
-      text-align:center;
-    }
-    .services h2{font-size:28px;margin-bottom:30px;color:var(--dark);}
-    .service-card{
-      background:rgba(255,255,255,0.8);
-      backdrop-filter:blur(8px);
-      border-radius:15px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      margin:0 auto 50px;
-      max-width:1000px;
-      padding:25px;
-      transition:0.3s;
-    }
-    .service-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
-    .service-card i{font-size:30px;color:var(--accent);margin-bottom:8px;}
-    .service-card h3{font-size:20px;margin-bottom:5px;}
-    .service-card p{font-size:15px;color:#555;margin-bottom:10px;}
-    /* SLIDER */
-    .slider-container{
-      position:relative;
-      overflow:hidden;
-      margin-top:15px;
-    }
-    .slider{
-      display:flex;
-      overflow-x:auto;
-      gap:12px;
-      scroll-behavior:smooth;
-      padding:8px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-    }
-    .slider img{
-      width:280px;
-      border-radius:12px;
-      flex-shrink:0;
-      scroll-snap-align:center;
-      box-shadow:0 4px 10px rgba(0,0,0,0.3);
-      transition:transform 0.3s;
-    }
-    .slider img:hover{transform:scale(1.05);}
-    .slider::-webkit-scrollbar{display:none;}
-    .slider-btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,0.5);
-      color:white;
-      border:none;
-      border-radius:50%;
-      font-size:18px;
-      padding:6px 10px;
-      cursor:pointer;
-      z-index:10;
-    }
-    .slider-btn.left{left:10px;}
-    .slider-btn.right{right:10px;}
-    /* FOOTER */
-    footer{
-      background:var(--dark);
-      color:white;
-      text-align:center;
-      padding:25px 15px;
-      margin-top:40px;
-    }
-    footer .socials{
-      margin-top:12px;
-      display:flex;
-      justify-content:center;
-      gap:18px;
-    }
-    footer .socials a{color:white;font-size:24px;transition:0.3s;}
-    footer .socials a:hover{color:var(--accent);}
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      header{flex-wrap:wrap;text-align:center;}
-      nav{width:100%;margin-top:8px;}
-      nav a{display:inline-block;margin:5px 10px;}
-      .slider img{width:230px;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAIRUQ DESIGN STUDIO | Designs Born from Vision</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* ======================================= */
+        /* BASE & TYPOGRAPHY */
+        /* ======================================= */
+        :root {
+            --primary-color: #007bff; /* A bright blue for modern look */
+            --text-color: #333;
+            --bg-color: #f8f8f8;
+            --card-bg: #ffffff;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ======================================= */
+        /* HEADER & NAVIGATION */
+        /* ======================================= */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ======================================= */
+        /* HERO SECTION */
+        /* ======================================= */
+        .hero {
+            text-align: center;
+            padding: 80px 15px;
+            background: linear-gradient(135deg, #e0f7ff, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        /* ======================================= */
+        /* SERVICES SECTION */
+        /* ======================================= */
+        .services-section {
+            padding: 60px 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--primary-color); /* Design Studio Touch */
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .service-card i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        /* ======================================= */
+        /* SLIDER STYLES (Swiper) */
+        /* ======================================= */
+        .service-slider {
+            margin-top: 20px;
+            padding: 10px 0 40px; /* Space for pagination */
+            cursor: grab;
+        }
+        
+        .swiper-slide {
+            transition: all 0.3s ease;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 200px; /* Fixed height for a uniform look */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Attractive Hover Effect */
+        .swiper-slide:hover img {
+            transform: scale(1.03); /* Slight zoom on hover */
+            opacity: 0.9;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pagination Dots */
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color) !important;
+            transform: scale(1.2);
+        }
+        
+        /* Remove default buttons (as requested) */
+        .prev, .next {
+            display: none;
+        }
+
+        /* ======================================= */
+        /* ABOUT & CONTACT */
+        /* ======================================= */
+        .about-section {
+            background-color: var(--card-bg);
+            padding: 60px 0;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .contact-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* ======================================= */
+        /* FOOTER & SOCIALS */
+        /* ======================================= */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ======================================= */
+        /* MOBILE RESPONSIVENESS */
+        /* ======================================= */
+        @media (max-width: 768px) {
+            
+            /* Header adjustments for mobile */
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .nav-links a {
+                margin: 5px 0;
+                padding: 5px 0;
+                text-align: left;
+            }
+            
+            /* Hero adjustments */
+            .hero {
+                padding: 60px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            /* Service cards adjustments */
+            .service-card {
+                padding: 20px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            /* Swiper adjustments for better mobile viewing */
+            .swiper-slide img {
+                height: 150px; /* Shorter height on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="logo">
-      <span><span class="accent">ZAIRUQ</span> DESIGN STUDIO</span>
-    </div>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero" id="hero">
-    <h1>Designs Born from Vision, Crafted with Soul</h1>
-    <p>Innovate | Create | Visualize — Your Imagination, Our Design Expertise</p>
-    <a href="https://wa.me/919978653852" target="_blank"><i class="fab fa-whatsapp"></i> Connect Now</a>
-  </section>
-
-  <section class="services" id="services">
-    <h2>Our Creative Services</h2>
-
-    <div class="service-card">
-      <i class="fas fa-id-card"></i>
-      <h3>Visiting Card / Business Card</h3>
-      <p>Make your first impression count with stunning designs.</p>
-      <div class="slider-container">
-        <button class="slider-btn left" onclick="slide(this,-1)">‹</button>
-        <div class="slider auto-scroll">
-          <img src="vc7.png"><img src="vc2.png"><img src="vc3.png"><img src="vc4.png">
-          <img src="vc5.png"><img src="vc6.jpg"><img src="vc7.png">
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo-text">ZAIRUQ DESIGN STUDIO</a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <button class="slider-btn right" onclick="slide(this,1)">›</button>
-      </div>
-    </div>
+    </header>
 
-    <div class="service-card">
-      <i class="fas fa-sim-card"></i>
-      <h3>NFC Card Design & Printing</h3>
-      <p>Tap into the future of networking with smart NFC cards.</p>
-      <div class="slider-container">
-        <button class="slider-btn left" onclick="slide(this,-1)">‹</button>
-        <div class="slider auto-scroll">
-          <img src="nfc1.jpg"><img src="nfc2.jpg"><img src="nfc3.jpg"><img src="nfc4.jpg">
-          <img src="nfc5.jpg"><img src="nfc6.jpg"><img src="nfc7.jpg"><img src="nfc8.jpg">
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Designs Born from Vision, Crafted with Soul</h1>
+            <p>Innovate | Create | Visualize — Your Imagination, Our Design Expertise</p>
+            <a href="https://wa.me/919978653852" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+            </a>
         </div>
-        <button class="slider-btn right" onclick="slide(this,1)">›</button>
-      </div>
-    </div>
+    </section>
 
-  </section>
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">OUR CREATIVE SERVICES</h2>
 
-  <footer>
-    <p>&copy; <span id="year"></span> ZAIRUQ DESIGN STUDIO</p>
-    <div class="socials">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </footer>
+            <div class="service-card">
+                <i class="fas fa-id-card"></i> <h3>Visiting Card / Business Card Printing with Materials</h3>
+                <p>Make your first impression count with our high-quality visiting and business card printing. Choose from premium materials, textures, and finishes that reflect your brand identity and professionalism.</p>
+                
+                <div class="swiper-container service-slider visiting-card-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="vc7.png" alt="Visiting Card 1"></div>
+                        <div class="swiper-slide"><img src="vc1.png" alt="Visiting Card 2"></div>
+                        <div class="swiper-slide"><img src="vc2.png" alt="Visiting Card 3"></div>
+                        <div class="swiper-slide"><img src="vc3.png" alt="Visiting Card 4"></div>
+                        <div class="swiper-slide"><img src="vc4.png" alt="Visiting Card 5"></div>
+                        <div class="swiper-slide"><img src="vc5.png" alt="Visiting Card 6"></div>
+                        <div class="swiper-slide"><img src="vc6.png" alt="Visiting Card 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
 
-  <script>
-    document.getElementById("year").textContent=new Date().getFullYear();
+            <div class="service-card">
+                <i class="fas fa-sim-card"></i> <h3>NFC Card Design and Printing</h3>
+                <p>Experience the future of smart networking! We design and print NFC-enabled business cards that instantly share your contact details or digital portfolio with just one tap.</p>
+                
+                <div class="swiper-container service-slider nfc-card-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="nfc11.jpg" alt="NFC Card 1"></div>
+                        <div class="swiper-slide"><img src="nfc2.jpg" alt="NFC Card 2"></div>
+                        <div class="swiper-slide"><img src="nfc3.jpg" alt="NFC Card 3"></div>
+                        <div class="swiper-slide"><img src="nfc4.jpg" alt="NFC Card 4"></div>
+                        <div class="swiper-slide"><img src="nfc5.jpg" alt="NFC Card 5"></div>
+                        <div class="swiper-slide"><img src="nfc1.jpg" alt="NFC Card 6"></div>
+                        <div class="swiper-slide"><img src="nfc7.jpg" alt="NFC Card 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i> <h3>Logo & Poster Design</h3>
+                <p>Bring your vision to life with unique, creative logo and poster designs. From minimal and modern to bold and artistic — we design visuals that speak your brand language.</p>
+                
+                <div class="swiper-container service-slider logo-poster-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/logo_poster_1.jpg" alt="Logo Design 1"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_2.jpg" alt="Logo Design 2"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_3.jpg" alt="Poster Design 3"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_4.jpg" alt="Poster Design 4"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_5.jpg" alt="Logo/Poster 5"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_6.jpg" alt="Logo/Poster 6"></div>
+                        <div class="swiper-slide"><img src="images/logo_poster_7.jpg" alt="Logo/Poster 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
 
-    function slide(btn,direction){
-      const slider=btn.parentElement.querySelector('.slider');
-      const scrollAmount=300;
-      slider.scrollBy({left:scrollAmount*direction,behavior:'smooth'});
-    }
+            <div class="service-card">
+                <i class="fas fa-video"></i> <h3>Reel Making Service</h3>
+                <p>Boost your social media presence with eye-catching reels and promotional videos. Our team creates dynamic, trend-based visuals to help your brand stand out online.</p>
 
-    // AUTO SCROLL
-    document.querySelectorAll('.auto-scroll').forEach(slider=>{
-      let scrollDir=1;
-      setInterval(()=>{
-        slider.scrollBy({left:2*scrollDir});
-        if(slider.scrollLeft+slider.clientWidth>=slider.scrollWidth||slider.scrollLeft<=0)
-          scrollDir*=-1;
-      },20);
-    });
-  </script>
+                <div class="swiper-container service-slider reel-making-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/reel_1.jpg" alt="Reel Example 1"></div>
+                        <div class="swiper-slide"><img src="images/reel_2.jpg" alt="Reel Example 2"></div>
+                        <div class="swiper-slide"><img src="images/reel_3.jpg" alt="Reel Example 3"></div>
+                        <div class="swiper-slide"><img src="images/reel_4.jpg" alt="Reel Example 4"></div>
+                        <div class="swiper-slide"><img src="images/reel_5.jpg" alt="Reel Example 5"></div>
+                        <div class="swiper-slide"><img src="images/reel_6.jpg" alt="Reel Example 6"></div>
+                        <div class="swiper-slide"><img src="images/reel_7.jpg" alt="Reel Example 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-tag"></i> <h3>All Type of Sticker Printing</h3>
+                <p>Get customized stickers for branding, packaging, or decoration. We offer waterproof, glossy, and matte finishes to suit every style and purpose.</p>
+                
+                <div class="swiper-container service-slider sticker-printing-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/sticker_1.jpg" alt="Sticker Printing 1"></div>
+                        <div class="swiper-slide"><img src="images/sticker_2.jpg" alt="Sticker Printing 2"></div>
+                        <div class="swiper-slide"><img src="images/sticker_3.jpg" alt="Sticker Printing 3"></div>
+                        <div class="swiper-slide"><img src="images/sticker_4.jpg" alt="Sticker Printing 4"></div>
+                        <div class="swiper-slide"><img src="images/sticker_5.jpg" alt="Sticker Printing 5"></div>
+                        <div class="swiper-slide"><img src="images/sticker_6.jpg" alt="Sticker Printing 6"></div>
+                        <div class="swiper-slide"><img src="images/sticker_7.jpg" alt="Sticker Printing 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-mug-hot"></i> <h3>Customized Printing (Wood, Glass, Acrylic, Mobile Covers, Keychains, Pens, T-Shirts & Caps)</h3>
+                <p>Turn ordinary items into personalized products. Perfect for gifts, branding, and events — printed with precision and long-lasting quality.</p>
+                
+                <div class="swiper-container service-slider custom-printing-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/custom_print_1.jpg" alt="Custom Print 1"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_2.jpg" alt="Custom Print 2"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_3.jpg" alt="Custom Print 3"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_4.jpg" alt="Custom Print 4"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_5.jpg" alt="Custom Print 5"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_6.jpg" alt="Custom Print 6"></div>
+                        <div class="swiper-slide"><img src="images/custom_print_7.jpg" alt="Custom Print 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-flag"></i> <h3>Canvas Banner Design and Printing</h3>
+                <p>Promote your events, shops, or brands with stunning canvas banners. Designed creatively and printed on premium materials for a bold visual impact.</p>
+
+                <div class="swiper-container service-slider banner-printing-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/banner_1.jpg" alt="Banner Print 1"></div>
+                        <div class="swiper-slide"><img src="images/banner_2.jpg" alt="Banner Print 2"></div>
+                        <div class="swiper-slide"><img src="images/banner_3.jpg" alt="Banner Print 3"></div>
+                        <div class="swiper-slide"><img src="images/banner_4.jpg" alt="Banner Print 4"></div>
+                        <div class="swiper-slide"><img src="images/banner_5.jpg" alt="Banner Print 5"></div>
+                        <div class="swiper-slide"><img src="images/banner_6.jpg" alt="Banner Print 6"></div>
+                        <div class="swiper-slide"><img src="images/banner_7.jpg" alt="Banner Print 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-user-circle"></i> <h3>I-Card Design & Printing for Schools, Colleges & Companies</h3>
+                <p>Professional ID cards designed and printed for educational institutions and corporate offices. Durable, stylish, and customized to match your brand or institute identity.</p>
+
+                <div class="swiper-container service-slider icard-printing-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/icard_1.jpg" alt="I-Card Print 1"></div>
+                        <div class="swiper-slide"><img src="images/icard_2.jpg" alt="I-Card Print 2"></div>
+                        <div class="swiper-slide"><img src="images/icard_3.jpg" alt="I-Card Print 3"></div>
+                        <div class="swiper-slide"><img src="images/icard_4.jpg" alt="I-Card Print 4"></div>
+                        <div class="swiper-slide"><img src="images/icard_5.jpg" alt="I-Card Print 5"></div>
+                        <div class="swiper-slide"><img src="images/icard_6.jpg" alt="I-Card Print 6"></div>
+                        <div class="swiper-slide"><img src="images/icard_7.jpg" alt="I-Card Print 7"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>ABOUT ZAIRUQ DESIGN STUDIO</h2>
+            <p>At ZAIRUQ DESIGN STUDIO, we believe every design tells a story. Our studio blends artistic creativity with modern printing technology to deliver results that not only look stunning but also leave a lasting impact. From digital artwork and business branding to customized printing on diverse materials — we bring your vision to life.</p>
+            <p>Our dedicated team ensures that each project is handled with precision, innovation, and care. Whether you're a startup looking for a strong identity, a brand in need of promotional designs, or an individual seeking personalized prints — ZAIRUQ DESIGN STUDIO is your one-stop solution for creative excellence.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="services-section">
+        <div class="container contact-form">
+            <h2>Contact Us</h2>
+            <button>Send Message</button>
+            <p style="margin-top: 15px; font-weight: 600;">Call or WhatsApp: +91 99786 53852</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com/zairuqdesignstudio" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/zairuqdesignstudio" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/919978653852" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top: 15px;">&copy; ZAIRUQ DESIGN STUDIO</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all elements with the class 'service-slider'
+            const sliders = document.querySelectorAll('.service-slider');
+
+            sliders.forEach(slider => {
+                new Swiper(slider, {
+                    // Core Settings
+                    simulateTouch: true,
+                    loop: true, 
+                    // Medium speed auto-scroll
+                    autoplay: {
+                        delay: 3000, // 3 seconds
+                        disableOnInteraction: false, 
+                    },
+                    
+                    // Display Settings
+                    slidesPerView: 1.5, // Shows one and a half image initially
+                    spaceBetween: 20,   // Space between images
+                    
+                    // Pagination (Dots)
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    
+                    // Responsive Breakpoints
+                    breakpoints: {
+                        // Mobile devices (up to 640px)
+                        640: {
+                            slidesPerView: 2.5,
+                            spaceBetween: 15,
+                        },
+                        // Tablets (up to 768px)
+                        768: {
+                            slidesPerView: 3.5,
+                            spaceBetween: 25,
+                        },
+                        // Desktops (1024px and up)
+                        1024: {
+                            slidesPerView: 4.5,
+                            spaceBetween: 30,
+                        },
+                    },
+                });
+            });
+        });
+    </script>
 </body>
 </html>
