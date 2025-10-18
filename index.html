@@ -6,7 +6,7 @@
   <title>ZAIRUQ DESIGN STUDIO</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2d9b6f3e0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
     :root {
@@ -52,36 +52,37 @@
   padding: 25px 15px;
   text-align: center;
     }
-    footer {
-      background: #0d1a1f;
-      color: #fff;
-      padding: 25px 15px;
-      text-align: center;
-    }
-    
-    footer .socials {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    
-    footer .socials a {
-      color: #fff;
-      font-size: 24px;
-      transition: 0.3s;
-    }
-    
-    footer .socials a:hover {
-      color: #00b8c4;
-    }
-    
-    @media (max-width: 600px) {
-      footer .socials a {
-        font-size: 28px;
+          footer {
+        background: #0d1a1f;
+        color: #fff;
+        padding: 25px 15px;
+        text-align: center;
       }
-    }
+      
+      footer .socials {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      
+      footer .socials a {
+        color: #fff;
+        font-size: 26px;
+        transition: 0.3s;
+      }
+      
+      footer .socials a:hover {
+        color: #00b8c4;
+      }
+      
+      @media (max-width: 600px) {
+        footer .socials a {
+          font-size: 30px;
+        }
+      }
+
 
 
       nav a:hover {color: var(--accent);}
@@ -138,15 +139,6 @@
       font-weight: 600; transition: 0.3s; cursor: pointer;
     }
     .contact button:hover {background: var(--primary);}
-
-    /* Footer */
-    footer {
-      background: var(--dark); color: #fff; padding: 25px 15px; text-align: center;
-    }
-    footer .socials a {
-      color: #fff; margin: 0 10px; font-size: 20px; transition: 0.3s;
-    }
-    footer .socials a:hover {color: var(--accent);}
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -255,23 +247,24 @@
 
   <div class="socials">
     <a href="https://www.youtube.com/@yourchannel" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
+      <i class="fa-brands fa-youtube"></i>
     </a>
     <a href="https://instagram.com/zairuqdesignstudio" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
+      <i class="fa-brands fa-instagram"></i>
     </a>
     <a href="https://facebook.com/zairuqdesignstudio" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook"></i>
+      <i class="fa-brands fa-facebook"></i>
     </a>
     <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
+      <i class="fa-brands fa-linkedin"></i>
     </a>
     <a href="https://wa.me/919978653852" target="_blank" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
 </footer>
 
+  
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   const menuToggle = document.getElementById('menu-toggle');
