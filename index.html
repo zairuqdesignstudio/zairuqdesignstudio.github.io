@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZAIRUQ DESIGN STUDIO</title>
+  <link rel="icon" type="image/png" href="Green Modern Badge Gardening Logo Design.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b6f3e0.js" crossorigin="anonymous"></script>
+  <style>
+    * {box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif;}
+    :root {
+      --primary: #00b8c4;
+      --dark: #0d1a1f;
+      --accent: #00e6f6;
+      --light: #f9f9f9;
+    }
+    body {background: var(--light); color: var(--dark); line-height: 1.6;}
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--dark); color: #fff;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .logo {display: flex; align-items: center; gap: 10px;}
+    .logo img {height: 50px; width: 50px; border-radius: 50%;}
+    .logo span {font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: 1px;}
+    nav a {
+      color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s;
+    }
+    nav a:hover {color: var(--accent);}
+    .menu-toggle {display: none; font-size: 24px; color: #fff; background: none; border: none;}
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f1f24, #14363d);
+      color: #fff; padding: 120px 20px 80px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .hero img {height: 120px; width: 120px; border-radius: 50%; margin-bottom: 20px;}
+    .hero h1 {font-size: 40px; color: var(--accent); margin-bottom: 10px;}
+    .hero p {font-size: 18px; color: #cce7ea; margin-bottom: 20px;}
+    .hero a {
+      background: var(--accent); color: #fff; padding: 10px 20px; border-radius: 6px;
+      text-decoration: none; font-weight: 600; transition: 0.3s;
+    }
+    .hero a:hover {background: var(--primary);}
+
+    /* Services */
+    .services {background: #fff; padding: 80px 20px; text-align: center;}
+    .services h2 {font-size: 32px; color: var(--dark); margin-bottom: 20px;}
+    .service-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--light); padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s; text-align: left;
+    }
+    .service-card:hover {transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15);}
+    .service-card i {font-size: 30px; color: var(--primary); margin-bottom: 10px;}
+    .service-card h3 {font-size: 18px; margin-bottom: 8px; color: var(--dark);}
+    .service-card p {font-size: 15px; color: #555;}
+
+    /* About Section */
+    .about {background: var(--dark); color: #fff; padding: 80px 20px; text-align: center;}
+    .about img {height: 140px; width: 140px; border-radius: 50%; margin-bottom: 20px;}
+    .about h2 {font-size: 32px; color: var(--accent); margin-bottom: 20px;}
+    .about p {
+      max-width: 900px; margin: 0 auto 15px; font-size: 16px; color: #cce7ea; line-height: 1.7;
+    }
+
+    /* Contact Section */
+    .contact {padding: 70px 20px; text-align: center; background: #f0f6f7;}
+    .contact h2 {font-size: 32px; color: var(--dark); margin-bottom: 20px;}
+    .contact form {max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;}
+    .contact input, .contact textarea {
+      padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 15px;
+    }
+    .contact button {
+      background: var(--accent); color: #fff; border: none; padding: 12px; border-radius: 6px;
+      font-weight: 600; transition: 0.3s; cursor: pointer;
+    }
+    .contact button:hover {background: var(--primary);}
+
+    /* Footer */
+    footer {
+      background: var(--dark); color: #fff; padding: 25px 15px; text-align: center;
+    }
+    footer .socials a {
+      color: #fff; margin: 0 10px; font-size: 20px; transition: 0.3s;
+    }
+    footer .socials a:hover {color: var(--accent);}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {display: none;}
+      .menu-toggle {display: block;}
+    }
+    .mobile-nav {
+      display: none; position: fixed; top: 60px; right: 20px;
+      background: rgba(13,26,31,0.95); padding: 15px; border-radius: 10px; text-align: right;
+    }
+    .mobile-nav a {
+      display: block; margin: 10px 0; color: #fff; text-decoration: none; font-weight: 500;
+    }
+    .mobile-nav a:hover {color: var(--accent);}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="Green Modern Badge Gardening Logo Design.png" alt="ZAIRUQ Logo">
+    <span>ZAIRUQ DESIGN STUDIO</span>
+  </div>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+</header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#hero">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="hero" id="hero">
+  <img src="Green Modern Badge Gardening Logo Design.png" alt="Logo">
+  <h1>Designs Born from Vision, Crafted with Soul</h1>
+  <p>Innovate | Create | Visualize — Your Imagination, Our Design Expertise</p>
+  <a href="https://wa.me/919978653852" target="_blank"><i class="fab fa-whatsapp"></i> Connect on WhatsApp</a>
+</section>
+
+<section class="services" id="services">
+  <h2>Our Creative Services</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <i class="fas fa-id-card"></i>
+      <h3>Visiting Card Printing with Materials</h3>
+      <p>Premium quality visiting cards with a wide range of finishes and textures for a lasting impression.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-sim-card"></i>
+      <h3>RFID & NFC Card Printing</h3>
+      <p>Smart, secure and stylish RFID & NFC card printing solutions for businesses and events.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-pencil-ruler"></i>
+      <h3>Logo & Poster Design</h3>
+      <p>Creative and memorable logos, posters, and brand visuals tailored to your business identity.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-video"></i>
+      <h3>Reel Making Service</h3>
+      <p>Professional short video content creation for Instagram, Facebook, and digital promotions.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-sticky-note"></i>
+      <h3>Sticker Printing</h3>
+      <p>Durable, high-resolution stickers in multiple sizes and finishes for custom branding.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-paint-brush"></i>
+      <h3>Customized Printing</h3>
+      <p>Personalized printing on wood, glass, acrylic, mobile covers, keychains, pens, T-shirts & caps.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-image"></i>
+      <h3>Canvas Banner Printing & Design</h3>
+      <p>Beautiful, large-format canvas printing with professional design for events and marketing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <img src="Green Modern Badge Gardening Logo Design.png" alt="ZAIRUQ Logo">
+  <h2>About ZAIRUQ DESIGN STUDIO</h2>
+  <p>At ZAIRUQ DESIGN STUDIO, we believe every design tells a story. Our studio blends artistic creativity with modern printing technology to deliver results that not only look stunning but also leave a lasting impact. From digital artwork and business branding to customized printing on diverse materials — we bring your vision to life.</p>
+  <p>Our dedicated team ensures that each project is handled with precision, innovation, and care. Whether you're a startup looking for a strong identity, a brand in need of promotional designs, or an individual seeking personalized prints — ZAIRUQ DESIGN STUDIO is your one-stop solution for creative excellence.</p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; <span id="year"></span> ZAIRUQ DESIGN STUDIO</p>
+  <div class="socials">
+    <a href="https://instagram.com/zairuqdesignstudio" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/zairuqdesignstudio" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://wa.me/919978653852" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuToggle.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+  });
+</script>
+
+</body>
+</html>
