@@ -83,30 +83,47 @@
         }
       }
 
-
-.service-section {
+#visiting-card {
   text-align: center;
-  padding: 40px 0;
+  margin: 50px auto;
+  max-width: 800px;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-  padding: 0 20px;
-}
-
-.gallery img {
-  width: 100%;
+.carousel {
+  position: relative;
+  overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
 }
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 15px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.6); }
+
 
 
 
@@ -218,19 +235,23 @@
   </div>
     </div>
 
+<section id="visiting-card">
+  <h2>Our Visiting Card Designs</h2>
 
-<section id="visiting-card" class="service-section">
+  <div class="carousel">
+    <div class="slides">
+      <img src="vc1.png" alt="Visiting Card 1">
+      <img src="vc2.png" alt="Visiting Card 2">
+      <img src="vc3.png" alt="Visiting Card 3">
+      <img src="vc4.png" alt="Visiting Card 4">
+      <img src="vc5.png" alt="Visiting Card 5">
+    </div>
 
-  <div class="gallery">
-    <img src="vc1.png" alt="Modern Visiting Card Design">
-    <img src="vc2.png" alt="QR Code Business Card">
-    <img src="vc3.png" alt="Minimal Design Card">
-    <img src="vc4.png" alt="Luxury Gold Finish Card">
-    <img src="vc5.png" alt="Corporate Design">
-    <img src="vc6.png" alt="Elegant Style">
-    <img src="vc7.png" alt="Creative Mockup">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
   </div>
 </section>
+
 
     <div class="service-card">
       <i class="fas fa-sim-card"></i>
@@ -321,6 +342,23 @@
     mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
   });
 </script>
+
+<script>
+const slides = document.querySelector('.slides');
+const images = document.querySelectorAll('.slides img');
+let index = 0;
+
+document.querySelector('.next').addEventListener('click', () => {
+  index = (index + 1) % images.length;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  index = (index - 1 + images.length) % images.length;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+});
+</script>
+
 
 </body>
 </html>
