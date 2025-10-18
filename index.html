@@ -24,14 +24,29 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 10px 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    .logo {display: flex; align-items: center; gap: 10px;}
-    .logo img {height: 50px; width: 50px; border-radius: 50%;}
-    .logo span {font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: 1px;}
-    nav a {
-      color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s;
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
-    nav a:hover {color: var(--accent);}
-    .menu-toggle {display: none; font-size: 24px; color: #fff; background: none; border: none;}
+    .logo img {
+      height: 55px;
+      width: 55px;
+      border-radius: 50%;
+    }
+    .logo span {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+       .logo .white {
+      color: #fff;
+    }
+    .logo .accent {
+    color: var(--accent);
+    }
+      nav a:hover {color: var(--accent);}
+      .menu-toggle {display: none; font-size: 24px; color: #fff; background: none; border: none;}
 
     /* Hero Section */
     .hero {
@@ -113,9 +128,9 @@
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="ZAIRUQ Logo">
-    <span>ZAIRUQ DESIGN STUDIO</span>
-  </div>
+  <img src="images/logo.png" alt="Zairuq Design Studio Logo">
+  <span><span class="white">ZAIRUQ</span> <span class="accent">DESIGN</span> <span class="white">STUDIO</span></span>
+</div>
   <nav>
     <a href="#hero">Home</a>
     <a href="#services">Services</a>
