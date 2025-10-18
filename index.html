@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZAIRUQ DESIGN STUDIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a2d9b6f3e0.js" crossorigin="anonymous"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    :root{
+      --accent:#ff7f50;
+      --dark:#0f1a1a;
+      --muted:#6b6b6b;
+      --card-bg:#ffffff;
+    }
+    body{background:#fff;color:#111;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+    /* Header */
+    header{position:fixed;top:0;left:0;right:0;z-index:1200;background:rgba(17,17,17,0.85);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--accent)}
+    .logo img{height:44px;width:auto;border-radius:6px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,0.25)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:#fff;font-weight:500;padding:8px 10px;border-radius:6px;transition:0.18s}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+    .cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;font-weight:600;display:inline-block}
+    /* Mobile menu */
+    .menu-toggle{display:none;background:transparent;border:0;color:#fff;font-size:22px}
+    .nav-mobile{display:flex;gap:12px;align-items:center}
+
+    /* Hero */
+    .hero{min-height:72vh;display:flex;align-items:center;padding:120px 20px 60px;position:relative;background-size:cover;background-position:center center}
+    .hero::before{content:'';position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(120deg, rgba(5,13,13,0.7), rgba(6,28,28,0.6));z-index:0}
+    .hero .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;display:flex;gap:30px;align-items:center;justify-content:space-between;width:100%;padding:20px}
+    .hero-text{color:#fff;flex:1;padding:20px}
+    .hero-text h1{font-size:38px;letter-spacing:1px;margin-bottom:12px;text-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .hero-text p{font-size:18px;color:#e6f7f7;margin-bottom:18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Services */
+    .services{padding:70px 20px;background:#f7f8fa;text-align:center}
+    .services h2{font-size:28px;margin-bottom:16px;color:var(--dark)}
+    .services .desc{color:var(--muted);margin-bottom:30px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:0 auto}
+    .card{background:var(--card-bg);padding:18px;border-radius:12px;box-shadow:0 8px 22px rgba(12,18,20,0.05);text-align:left;display:flex;gap:12px;align-items:flex-start;transition:transform .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(12,18,20,0.08)}
+    .card .icon{min-width:54px;height:54px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.04));display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent);box-shadow:inset 0 -6px 12px rgba(0,0,0,0.02)}
+    .card h3{font-size:16px;margin-bottom:6px;color:var(--dark)}
+    .card p{color:var(--muted);font-size:14px;line-height:1.45}
+
+    /* About & Vision/Mission */
+    .about, .vision-mission{max-width:1000px;margin:40px auto;padding:28px 20px}
+    .about h2, .vision-mission h2{font-size:24px;margin-bottom:10px;color:var(--dark)}
+    .about p, .vision-mission p{color:var(--muted);font-size:15px}
+
+    .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+
+    /* Portfolio */
+    .portfolio{padding:40px 20px;background:#fff}
+    .portfolio h2{font-size:26px;text-align:center;margin-bottom:16px}
+    .portfolio-items{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .portfolio-item{width:300px;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(12,18,20,0.06);cursor:pointer}
+    .portfolio-item img{width:100%;height:190px;object-fit:cover;display:block}
+
+    /* Contact */
+    .contact{padding:40px 20px;background:#f7f8fa;text-align:center}
+    .contact .wrap{max-width:650px;margin:0 auto;text-align:left}
+    .contact form{display:grid;gap:12px}
+    .contact input,.contact textarea{padding:12px;border-radius:8px;border:1px solid #ddd;font-size:14px}
+    .contact button{background:var(--accent);color:#fff;padding:10px;border-radius:8px;border:0;font-weight:600;cursor:pointer}
+
+    /* Footer */
+    footer{background:var(--dark);color:#fff;padding:22px 20px;margin-top:26px}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .socials a{color:#fff;margin-left:10px;font-size:18px;transition:0.18s}
+    .socials a:hover{color:var(--accent)}
+
+    /* Lightbox */
+    #lightbox{position:fixed;display:none;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;z-index:1600}
+    #lightbox img{max-width:92%;max-height:92%;border-radius:8px}
+
+    /* Responsive */
+    @media (max-width:1000px){.service-grid{grid-template-columns:repeat(2,1fr)}.vm-grid{grid-template-columns:1fr}}
+    @media (max-width:700px){
+      nav{display:none}
+      .menu-toggle{display:block}
+      .hero-inner{flex-direction:column;align-items:flex-start;padding:14px}
+      .hero-text h1{font-size:26px}
+      .hero{padding-top:88px}
+      .service-grid{grid-template-columns:1fr}
+      .portfolio-item{width:100%;}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+    }
+    /* Mobile nav open */
+    .mobile-nav-panel{position:fixed;right:12px;top:64px;background:rgba(8,12,12,0.98);padding:12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.35);display:none;flex-direction:column;gap:8px;z-index:1300}
+    .mobile-nav-panel a{color:#fff;padding:8px 12px;border-radius:8px}
+    .mobile-nav-panel a:hover{background:rgba(255,255,255,0.04)}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <!-- small logo image (optional) -->
+      <img src="Tosca White Tech Twitter Header.png" alt="ZAIRUQ logo" onerror="this.style.display='none'">
+      <span>ZAIRUQ Design Studio</span>
+    </div>
+
+    <nav id="main-nav">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="https://wa.me/919978653852" target="_blank">WhatsApp</a>
+    </nav>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    <div class="mobile-nav-panel" id="mobile-panel" aria-hidden="true">
+      <a href="#hero" onclick="closeMobile()">Home</a>
+      <a href="#services" onclick="closeMobile()">Services</a>
+      <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+      <a class="cta" href="https://wa.me/919978653852" target="_blank">WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero" style="background-image:url('Tosca White Tech Twitter Header.png')">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>ZAIRUQ Design Studio</h1>
+        <p>Designs Born from Vision, Crafted with Soul</p>
+        <div class="hero-actions">
+          <a class="cta" href="https://wa.me/919978653852" target="_blank"><i class="fab fa-whatsapp"></i>&nbsp;&nbsp;Contact on WhatsApp</a>
+          <a href="#services" style="background:transparent;border:1px solid rgba(255,255,255,0.18);color:#fff;padding:10px 12px;border-radius:8px;font-weight:600">View Services</a>
+        </div>
+      </div>
+      <div style="flex:0 0 300px;display:none;" class="hero-image">
+        <!-- reserved for future small image or logo -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="desc">Comprehensive design & printing solutions — quality materials, fast turnaround, and creative direction.</div>
+
+    <div class="service-grid" role="list">
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-id-card"></i></div>
+        <div>
+          <h3>Visiting Card Printing with Materials</h3>
+          <p>High-quality visiting cards with a selection of paper, lamination and finishing options for every budget.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-sim-card"></i></div>
+        <div>
+          <h3>RFID &amp; NFC Card Printing</h3>
+          <p>Custom-encoded RFID &amp; NFC cards for access control, attendance, membership and smart tagging.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+        <div>
+          <h3>Logo &amp; Poster Design</h3>
+          <p>Brand identities, logo concepts and poster layouts that communicate your message clearly and beautifully.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-video"></i></div>
+        <div>
+          <h3>Reel Making Service</h3>
+          <p>Short-form promotional reels for Instagram, Facebook and other platforms — editing, sound design and captions.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-sticky-note"></i></div>
+        <div>
+          <h3>Sticker Printing</h3>
+          <p>Durable stickers available in multiple finishes and die-cut shapes for branding and packaging.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-paint-brush"></i></div>
+        <div>
+          <h3>Customized Printing on Wood, Glass, Acrylic & More</h3>
+          <p>Personalized prints for wooden plaques, glass, acrylic sheets, mobile covers, keychains, pens, T-shirts and caps.</p>
+        </div>
+      </div>
+
+      <div class="card" role="listitem">
+        <div class="icon"><i class="fas fa-image"></i></div>
+        <div>
+          <h3>Canvas Banner Printing &amp; Design</h3>
+          <p>Large-format canvas banners with design support — perfect for events, storefronts and advertising.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-items">
+      <div class="portfolio-item"><img src="https://via.placeholder.com/1200x800.png?text=Design+Sample+1" alt="Design 1"></div>
+      <div class="portfolio-item"><img src="https://via.placeholder.com/1200x800.png?text=Design+Sample+2" alt="Design 2"></div>
+      <div class="portfolio-item"><img src="https://via.placeholder.com/1200x800.png?text=Design+Sample+3" alt="Design 3"></div>
+      <div class="portfolio-item"><img src="https://via.placeholder.com/1200x800.png?text=Design+Sample+4" alt="Design 4"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox"><img src="" alt="Enlarged"></div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>About ZAIRUQ Design Studio</h2>
+    <p>ZAIRUQ Design Studio combines creativity with technical skill to deliver print and digital solutions that elevate brands. We focus on quality materials, timely delivery, and designs that communicate.</p>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="vision-mission" id="vision">
+    <h2>Vision &amp; Mission</h2>
+    <div class="vm-grid">
+      <div>
+        <h3 style="margin-bottom:8px">Our Vision</h3>
+        <p>To become the most trusted local design and print partner — crafting meaningful visuals that help businesses connect with their audience.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:8px">Our Mission</h3>
+        <p>Deliver high-quality design & printing services with transparent pricing, fast turnarounds and friendly support — helping clients grow with beautiful, functional design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <div class="wrap">
+      <form onsubmit="event.preventDefault(); alert('Thank you! We will get back to you.');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div style="margin-top:18px;">
+        <a href="https://wa.me/919978653852" target="_blank" class="cta" style="display:inline-block;margin-right:8px"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://instagram.com/zairuqdesignstudio" target="_blank" style="display:inline-block;margin-right:8px"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://facebook.com/zairuqdesignstudio" target="_blank" style="display:inline-block"><i class="fab fa-facebook"></i> Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> ZAIRUQ Design Studio — All rights reserved.</div>
+      <div class="socials" aria-label="social links">
+        <a href="https://instagram.com/zairuqdesignstudio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/zairuqdesignstudio" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/919978653852" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobilePanel = document.getElementById('mobile-panel');
+    menuToggle.addEventListener('click', () => {
+      const open = mobilePanel.style.display === 'flex';
+      mobilePanel.style.display = open ? 'none' : 'flex';
+      mobilePanel.setAttribute('aria-hidden', open ? 'true' : 'false');
+      menuToggle.innerHTML = open ? '<i class=\"fas fa-bars\"></i>' : '<i class=\"fas fa-times\"></i>';
+    });
+    function closeMobile(){ mobilePanel.style.display='none'; menuToggle.innerHTML = '<i class=\"fas fa-bars\"></i>'; }
+
+    // lightbox for portfolio
+    const items = document.querySelectorAll('.portfolio-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = lightbox.querySelector('img');
+    items.forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+    lightbox.addEventListener('click', () => lightbox.style.display = 'none');
+  </script>
+</body>
+</html>
