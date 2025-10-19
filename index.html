@@ -13,48 +13,60 @@
     color: #222;
   }
 
-  header {
+  /* 🧲 Sticky Header */
+header {
   background: #111;
   color: white;
-  text-align: center;
-  padding: 20px;
-  position: fixed;          /* 🧲 This makes it stick at top */
-  top: 0;                   /* Keep it at top of the page */
-  width: 100%;              /* Full width */
-  z-index: 1000;            /* Keeps it above all content */
+  text-align: center;     /* ✅ correct spelling */
+  padding: 20px 0 10px;   /* balanced top & bottom spacing */
+  position: fixed;        /* stay on top while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-  header h1 {
-    font-size: 28px;
-    margin: 5px 0;
-    letter-spacing: 2px;
-  }
+/* Header Title */
+header h1 {
+  font-size: 28px;
+  margin: 5px 0;
+  letter-spacing: 2px;
+  text-align: center;     /* ✅ ensures text is centered */
+}
 
-  header p {
-    font-size: 14px;
-    color: #ddd;
-    margin-top: 4px;
-  }
+/* Tagline */
+header p {
+  font-size: 14px;
+  color: #ddd;
+  margin-top: 4px;
+  text-align: center;
+}
 
-  nav {
-    background: #222;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 10px 0;
-  }
+/* Navbar Section */
+nav {
+  background: #222;
+  display: flex;
+  justify-content: center;  /* ✅ center horizontally */
+  align-items: center;      /* ✅ center vertically */
+  gap: 30px;                /* spacing between links */
+  flex-wrap: wrap;          /* wrap nicely on mobile */
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 10px;
+}
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
+/* Navbar Links */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-  nav a:hover {
-    color: #ff7f50;
-  }
+nav a:hover {
+  color: #ff7f50;
+}
+
 
   section {
     padding: 30px;
@@ -185,7 +197,7 @@ style="color:#f39c12;
 text-decoration:none;">Connect on Whatsapp</a></p>
 </section>
 
-<section style="margin-top:120px;" id="services">
+<section style="margin-top:100px;" id="services">
 
   <h2>OUR CREATIVE SERVICES</h2>
 
@@ -327,13 +339,13 @@ text-decoration:none;">Connect on Whatsapp</a></p>
 
 
 <!-- About -->
-<section id="about">
+<section style="margin-top:100px;" id="about">
 <h2>About Us</h2>
 <p>At <b-justify>ZAIRUQ Design Studio</b>, we specialize in creative designing & high-quality printing solutions. From visiting cards & NFC cards to customized merchandise & professional logo designs, we bring your ideas to life with precision, creativity, & style.</p>
 </section>
 
 <!-- Contact -->
-<section id="contact">
+<section style="margin-top:100px;" id="contact">
 <h2>Contact Us</h2>
 <p>📞 <b>Call / WhatsApp:</b> +91 9978653852</p>
 <p>📧 <b>Email:</b>zairuqdesignstudio@gmail.com</p>
