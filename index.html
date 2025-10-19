@@ -125,6 +125,27 @@ footer .socials a:hover {
   color: #00b8c4;
 }
 
+
+/* Small animated label for each service */
+.price-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #00e6f6, #00b8c4);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  animation: glowPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 184, 196, 0.4);
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(0, 230, 246, 0.4); transform: scale(1);}
+  50% { box-shadow: 0 0 20px rgba(0, 230, 246, 0.8); transform: scale(1.05);}
+  100% { box-shadow: 0 0 10px rgba(0, 230, 246, 0.4); transform: scale(1);}
+}
+
 @media (max-width: 600px) {
   footer .socials a {
     font-size: 28px;
@@ -156,6 +177,8 @@ footer .socials a:hover {
 
   <!-- 1️⃣ Visiting Card -->
   <div class="service-card">
+ <div class="price-label">Start with Just ₹99 Only</div>
+  <i class="fas fa-id-card"></i>
     <h3>Visiting Card / Business Card Printing</h3>
     <p>Make your first impression count with premium visiting and business cards.</p>
     <div class="slider" id="slider1">
@@ -173,7 +196,9 @@ footer .socials a:hover {
 
   <!-- 2️⃣ NFC Card -->
   <div class="service-card">
-    <h3>NFC Card Design and Printing</h3>
+ <div class="price-label">Start with Just ₹99 Only</div>
+  <i class="fas fa-id-card"></i>
+ <h3>NFC Card Design and Printing</h3>
     <p>Tap & connect instantly — smart NFC cards for digital sharing.</p>
     <div class="slider" id="slider2">
       <div class="slides">
@@ -190,6 +215,8 @@ footer .socials a:hover {
 
   <!-- 3️⃣ Logo Design -->
   <div class="service-card">
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
     <h3>Logo & Poster Design</h3>
     <p>Creative, modern, and memorable logo designs that tell your story.</p>
     <div class="slider" id="slider3">
@@ -207,6 +234,8 @@ footer .socials a:hover {
 
   <!-- 4️⃣ Reel Making -->
   <div class="service-card">
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
     <h3>Reel Making Service</h3>
     <p>Social media ready reels that grab attention and grow your reach.</p>
     <div class="slider" id="slider4">
@@ -224,6 +253,8 @@ footer .socials a:hover {
 
   <!-- 5️⃣ Sticker Printing -->
   <div class="service-card">
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
     <h3>All Type of Sticker Printing</h3>
     <p>Glossy, matte, waterproof — stickers that make your brand pop.</p>
     <div class="slider" id="slider5">
@@ -241,6 +272,8 @@ footer .socials a:hover {
 
   <!-- 6️⃣ Customized Printing -->
   <div class="service-card">
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
     <h3>Customized Printing</h3>
     <p>Wood, glass, acrylic & more — personalized designs for every need.</p>
     <div class="slider" id="slider6">
@@ -258,6 +291,10 @@ footer .socials a:hover {
 
   <!-- 7️⃣ Canvas Banner -->
   <div class="service-card">
+
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
+
     <h3>Canvas Banner Design & Printing</h3>
     <p>Bold, beautiful banners designed for impact and visibility.</p>
     <div class="slider" id="slider7">
@@ -275,6 +312,8 @@ footer .socials a:hover {
 
   <!-- 8️⃣ I-Card Design -->
   <div class="service-card">
+<div class="price-label">Start with Just ₹99 Only</div>
+ <i class="fas fa-id-card"></i>
     <h3>I-Card Design & Printing</h3>
     <p>Durable and stylish ID cards for schools, colleges, and companies.</p>
     <div class="slider" id="slider8">
