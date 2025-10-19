@@ -100,13 +100,38 @@
     }
   }
 
-  footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+ footer {
+  background: #0d1a1f;
+  color: #fff;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+footer .socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer .socials a {
+  color: #fff;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+footer .socials a:hover {
+  color: #00b8c4;
+}
+
+@media (max-width: 600px) {
+  footer .socials a {
+    font-size: 28px;
   }
+}
+
+
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
