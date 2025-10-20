@@ -194,91 +194,125 @@ footer .socials a:hover {
 <!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
 
 
-
-<!-- ===== Floating Rotating Social Icons Start ===== -->
-<div class="floating-social-icons">
-  <div class="social-bubble">
-    <a href="https://facebook.com/zairuqdesignstudio" target="_blank" class="icon fb"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com/zairuqdesignstudio" target="_blank" class="icon ig"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/@zairuqdesignstudio" target="_blank" class="icon yt"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitter.com/zairuqdesignstudio" target="_blank" class="icon tw"><i class="fab fa-twitter"></i></a>
-    <a href="https://linkedin.com/company/zairuqdesignstudio" target="_blank" class="icon li"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://wa.me/918000000000?text=Hello%20ZAIRUQ%20Design%20Studio!" target="_blank" class="icon wa"><i class="fab fa-whatsapp"></i></a>
+<!-- ====== Flying Bird Social Animation (ZAIRUQ Design Studio) ====== -->
+<div class="bird-fly-animation">
+  <div class="bird-path">
+    <div class="bird-icon" id="birdIcon">
+      <span class="bird">🕊️</span>
+      <a href="#" target="_blank" id="socialLink">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
   </div>
 </div>
 
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
 <style>
-/* ===== Floating Social Icons ===== */
-.floating-social-icons {
+/* ===== Base Layer Setup ===== */
+.bird-fly-animation {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 280px;
-  height: 280px;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* allow page text clicks */
+  bottom: 15%;
+  right: 0;
+  width: 100%;
+  height: 150px;
+  pointer-events: none;
   z-index: 999;
 }
 
-.social-bubble {
+.bird-path {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  animation: rotate 15s linear infinite;
+  overflow: visible;
 }
 
-.icon {
+/* ===== Bird + Icon ===== */
+.bird-icon {
   position: absolute;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  bottom: 0;
+  left: -100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  pointer-events: auto;
+}
+
+.bird {
+  font-size: 28px;
+  animation: flap 0.6s ease-in-out infinite;
+}
+
+.bird-icon a {
+  color: #fff;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 20px;
+  border-radius: 50%;
   text-decoration: none;
-  pointer-events: auto; /* enable click on icons */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover glow */
-.icon:hover {
-  transform: scale(1.25);
-  box-shadow: 0 0 15px rgba(255,255,255,0.8);
-}
+/* ===== Icon Colors ===== */
+.bird-icon .fa-facebook-f { background: #1877f2; }
+.bird-icon .fa-instagram { background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.bird-icon .fa-youtube { background: #ff0000; }
+.bird-icon .fa-twitter { background: #1da1f2; }
+.bird-icon .fa-linkedin-in { background: #0077b5; }
+.bird-icon .fa-whatsapp { background: #25d366; }
 
-/* Icon colors */
-.fb { background: #1877f2; }
-.ig { background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.yt { background: #ff0000; }
-.tw { background: #1da1f2; }
-.li { background: #0077b5; }
-.wa { background: #25d366; }
-
-/* Perfect orbit positions */
-.fb { top: 0; left: 50%; transform: translate(-50%, 0); }
-.ig { top: 20%; right: 0; transform: translate(0, -50%); }
-.wa { bottom: 20%; right: 0; transform: translate(0, 50%); }
-.li { bottom: 0; left: 50%; transform: translate(-50%, 0); }
-.tw { bottom: 20%; left: 0; transform: translate(0, 50%); }
-.yt { top: 20%; left: 0; transform: translate(0, -50%); }
-
-/* Orbit Animation */
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* ===== Bird Flapping ===== */
+@keyframes flap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 </style>
 
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- ===== Floating Rotating Social Icons End ===== -->
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+<script>
+/* ===== GSAP Animation ===== */
+const birdIcon = document.getElementById("birdIcon");
+const socialLink = document.getElementById("socialLink");
+const icons = [
+  { icon: "facebook-f", link: "https://facebook.com/zairuqdesignstudio" },
+  { icon: "instagram", link: "https://instagram.com/zairuqdesignstudio" },
+  { icon: "youtube", link: "https://youtube.com/@zairuqdesignstudio" },
+  { icon: "twitter", link: "https://twitter.com/zairuqdesignstudio" },
+  { icon: "linkedin-in", link: "https://linkedin.com/company/zairuqdesignstudio" },
+  { icon: "whatsapp", link: "https://wa.me/918000000000?text=Hello%20ZAIRUQ%20Design%20Studio!" }
+];
 
+let index = 0;
 
+function flyNext() {
+  const current = icons[index];
+  socialLink.href = current.link;
+  socialLink.innerHTML = `<i class="fab fa-${current.icon}"></i>`;
 
+  gsap.set(birdIcon, { x: -150, y: 0, opacity: 0, scale: 1 });
+  gsap.to(birdIcon, {
+    duration: 5,
+    x: window.innerWidth + 150,
+    y: gsap.utils.random(-40, 40),
+    opacity: 1,
+    ease: "power1.inOut",
+    onComplete: () => {
+      index = (index + 1) % icons.length;
+      setTimeout(flyNext, 1500); // next bird delay
+    },
+  });
+}
+
+flyNext();
+</script>
 
 
 <section id="services">
