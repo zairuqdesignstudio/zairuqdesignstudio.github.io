@@ -193,14 +193,19 @@ footer .socials a:hover {
 
 <!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
 
-
 <!-- ====== Flying Bird Social Animation (ZAIRUQ Design Studio) ====== -->
 <div class="bird-fly-animation">
   <div class="bird-path">
-    <div class="bird-icon" id="birdIcon">
+    <div class="bird-icon" id="birdIcon1">
       <span class="bird">🕊️</span>
-      <a href="#" target="_blank" id="socialLink">
+      <a href="#" target="_blank" id="socialLink1">
         <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+    <div class="bird-icon" id="birdIcon2">
+      <span class="bird">🕊️</span>
+      <a href="#" target="_blank" id="socialLink2">
+        <i class="fab fa-instagram"></i>
       </a>
     </div>
   </div>
@@ -216,10 +221,10 @@ footer .socials a:hover {
 /* ===== Base Layer Setup ===== */
 .bird-fly-animation {
   position: fixed;
-  bottom: 15%;
+  top: 120px; /* sticky header ke niche */
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 250px;
   pointer-events: none;
   z-index: 999;
 }
@@ -234,31 +239,29 @@ footer .socials a:hover {
 /* ===== Bird + Icon ===== */
 .bird-icon {
   position: absolute;
-  bottom: 0;
-  left: -150px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
   font-size: 28px;
   pointer-events: auto;
 }
 
 .bird {
-  font-size: 45px;
-  animation: flap 0.8s ease-in-out infinite;
+  font-size: 50px;
+  animation: flap 1s ease-in-out infinite;
 }
 
 .bird-icon a {
   color: #fff;
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 26px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  font-size: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -278,7 +281,7 @@ footer .socials a:hover {
 /* ===== Bird Flapping ===== */
 @keyframes flap {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
 }
 </style>
 
@@ -286,10 +289,6 @@ footer .socials a:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
-/* ===== GSAP Animation ===== */
-const birdIcon = document.getElementById("birdIcon");
-const socialLink = document.getElementById("socialLink");
-
 const icons = [
   { icon: "facebook-f", link: "https://facebook.com/zairuqdesignstudio" },
   { icon: "instagram", link: "https://instagram.com/zairuqdesignstudio" },
@@ -299,39 +298,50 @@ const icons = [
   { icon: "whatsapp", link: "https://wa.me/918000000000?text=Hello%20ZAIRUQ%20Design%20Studio!" }
 ];
 
-let index = 0;
-let direction = 1; // 1 = left-to-right, -1 = right-to-left
+let index1 = 0, index2 = 1;
+let direction1 = 1, direction2 = -1;
 
-function flyNext() {
+const birdIcon1 = document.getElementById("birdIcon1");
+const socialLink1 = document.getElementById("socialLink1");
+const birdIcon2 = document.getElementById("birdIcon2");
+const socialLink2 = document.getElementById("socialLink2");
+
+/* Bird fly function */
+function flyBird(birdIcon, socialLink, index, direction) {
   const current = icons[index];
   socialLink.href = current.link;
   socialLink.innerHTML = `<i class="fab fa-${current.icon}"></i>`;
 
-  // Bird side flip if flying right-to-left
   birdIcon.style.transform = direction === -1 ? "scaleX(-1)" : "scaleX(1)";
 
-  const startX = direction === 1 ? -200 : window.innerWidth + 200;
-  const endX = direction === 1 ? window.innerWidth + 200 : -200;
+  const startX = direction === 1 ? -150 : window.innerWidth + 150;
+  const endX = direction === 1 ? window.innerWidth + 150 : -150;
+  const randomY = gsap.utils.random(-50, 80);
 
-  gsap.set(birdIcon, { x: startX, y: gsap.utils.random(-30, 40), opacity: 1 });
+  gsap.set(birdIcon, { x: startX, y: randomY, opacity: 1 });
 
   gsap.to(birdIcon, {
-    duration: 8, // slower flight
+    duration: 12, // slow flight
     x: endX,
+    y: randomY + gsap.utils.random(-30, 30), // thoda upar-niche move
     ease: "power1.inOut",
     onComplete: () => {
-      // switch direction + next icon
-      direction *= -1;
-      index = (index + 1) % icons.length;
-      setTimeout(flyNext, 1000); // pause before next flight
-    },
+      const nextIndex = (index + 1) % icons.length;
+      const nextDir = direction * -1;
+      flyBird(birdIcon, socialLink, nextIndex, nextDir);
+    }
   });
 }
 
-flyNext();
+/* Start both birds */
+flyBird(birdIcon1, socialLink1, index1, direction1);
+flyBird(birdIcon2, socialLink2, index2, direction2);
 </script>
 
-<section id="services" style="margin-top:120px;">
+
+
+
+<section id="services" style="margin-top:135px;">
   <!-- Your section content here -->
 
   <h2>OUR CREATIVE SERVICES</h2>
