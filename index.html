@@ -193,6 +193,7 @@ footer .socials a:hover {
 
 <!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
 
+
 <!-- ====== Floating Social Icons (ZAIRUQ Design Studio) ====== -->
 <div class="center-social-rotation">
   <a href="#" id="socialLink" target="_blank">
@@ -216,17 +217,16 @@ footer .socials a:hover {
   pointer-events: auto;
 }
 
-/* Smaller, transparent icon style */
 .center-social-rotation a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 75px; /* smaller size (75% of 100px) */
-  height: 75px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   font-size: 30px;
   color: #fff;
-  opacity: 0.8; /* transparency */
+  opacity: 0.8;
   text-decoration: none;
   box-shadow: 0 0 20px rgba(0,0,0,0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
@@ -260,7 +260,6 @@ footer .socials a:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
-/* Social Icons */
 const icons = [
   { icon: "facebook-f", link: "https://facebook.com/zairuqdesignstudio" },
   { icon: "instagram", link: "https://instagram.com/zairuqdesignstudio" },
@@ -278,14 +277,13 @@ function animateIcon() {
   socialLink.href = current.link;
   socialLink.innerHTML = `<i class="fab fa-${current.icon}"></i>`;
 
-  // random position within center range
   const xMove = gsap.utils.random(-150, 150);
   const yMove = gsap.utils.random(-100, 100);
 
   gsap.to(".center-social-rotation", {
     x: xMove,
     y: yMove,
-    duration: 6,
+    duration: 3.5,  /* ⏩ speed increased from 6s → 3.5s */
     ease: "sine.inOut",
     yoyo: true,
     repeat: 1,
@@ -298,9 +296,6 @@ function animateIcon() {
 
 animateIcon();
 </script>
-
-
-
 
 
 
