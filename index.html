@@ -191,10 +191,9 @@ footer .socials a:hover {
 </nav>
 </header>
 
-<!-- 🌟 Zairuq Design Studio Social Media Bubble Section -->
-<section id="home" style="margin-top:50px;" class="social-bubble-section">
+<!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
+<section id="social" class="social-bubble-section">
   <div class="bubble-container">
-  <!-- Floating Social Icons -->
     <a href="https://www.facebook.com/zairuqdesignstudio" target="_blank" class="bubble fb">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -218,21 +217,17 @@ footer .socials a:hover {
 
 <!-- 🎨 CSS Section -->
 <style>
-
 .social-bubble-section {
-  background-color: #ffeb3b;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 100px 0;
+  padding: 40px 0;
 }
 
 .bubble-container {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 350px;
+  height: 200px;
   margin: 0 auto;
 }
 
@@ -242,31 +237,33 @@ footer .socials a:hover {
   height: 70px;
   border-radius: 50%;
   display: flex;
-  align-items: center;  justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-size: 28px;
   color: #fff;
+  text-decoration: none; /* removes underline */
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.25);
 }
 
-/* Bubble positions (like image layout) */
-.fb { background: #1877f2; top: 35%; left: 40%; transform: translate(-50%, -50%); }
-.ig { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); top: 25%; left: 60%; transform: translate(-50%, -50%); }
-.yt { background: #ff0000; top: 48%; left: 55%; transform: translate(-50%, -50%); }
-.wa { background: #25d366; top: 48%; left: 25%; transform: translate(-50%, -50%); }
-.li { background: #0077b5; top: 25%; left: 20%; transform: translate(-50%, -50%); }
-.tw { background: #000; top: 12%; left: 40%; transform: translate(-50%, -50%); }
+/* Bubble positions (arranged like image) */
+.fb { background: #1877f2; top: 45%; left: 45%; transform: translate(-50%, -50%); }
+.ig { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); top: 20%; left: 65%; transform: translate(-50%, -50%); }
+.yt { background: #ff0000; top: 60%; left: 65%; transform: translate(-50%, -50%); }
+.wa { background: #25d366; top: 60%; left: 25%; transform: translate(-50%, -50%); }
+.li { background: #0077b5; top: 20%; left: 25%; transform: translate(-50%, -50%); }
+.tw { background: #000; top: 5%; left: 45%; transform: translate(-50%, -50%); }
 
 /* Hover animation */
 .bubble:hover {
-  transform: scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* Floating animation for liveliness */
+/* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 .bubble {
   animation: float 3s ease-in-out infinite;
@@ -277,10 +274,11 @@ footer .socials a:hover {
 .bubble:nth-child(5) { animation-delay: 0.8s; }
 .bubble:nth-child(6) { animation-delay: 1s; }
 
+/* Mobile Responsive */
 @media (max-width: 600px) {
   .bubble-container {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 180px;
   }
   .bubble {
     width: 55px;
@@ -292,12 +290,6 @@ footer .socials a:hover {
 
 <!-- Font Awesome CDN -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-
-
-
-
-
 
 
 <section style="margin-top:110px;" id="services">
