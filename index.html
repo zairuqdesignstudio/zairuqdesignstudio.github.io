@@ -217,9 +217,9 @@ footer .socials a:hover {
 .bird-fly-animation {
   position: fixed;
   bottom: 15%;
-  right: 0;
+  left: 0;
   width: 100%;
-  height: 150px;
+  height: 200px;
   pointer-events: none;
   z-index: 999;
 }
@@ -235,28 +235,36 @@ footer .socials a:hover {
 .bird-icon {
   position: absolute;
   bottom: 0;
-  left: -100px;
+  left: -150px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 24px;
+  gap: 15px;
+  font-size: 28px;
   pointer-events: auto;
 }
 
 .bird {
-  font-size: 28px;
-  animation: flap 0.6s ease-in-out infinite;
+  font-size: 45px;
+  animation: flap 0.8s ease-in-out infinite;
 }
 
 .bird-icon a {
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   text-decoration: none;
+  font-size: 26px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bird-icon a:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(255,255,255,0.8);
 }
 
 /* ===== Icon Colors ===== */
@@ -270,7 +278,7 @@ footer .socials a:hover {
 /* ===== Bird Flapping ===== */
 @keyframes flap {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
 }
 </style>
 
@@ -281,6 +289,7 @@ footer .socials a:hover {
 /* ===== GSAP Animation ===== */
 const birdIcon = document.getElementById("birdIcon");
 const socialLink = document.getElementById("socialLink");
+
 const icons = [
   { icon: "facebook-f", link: "https://facebook.com/zairuqdesignstudio" },
   { icon: "instagram", link: "https://instagram.com/zairuqdesignstudio" },
@@ -291,22 +300,30 @@ const icons = [
 ];
 
 let index = 0;
+let direction = 1; // 1 = left-to-right, -1 = right-to-left
 
 function flyNext() {
   const current = icons[index];
   socialLink.href = current.link;
   socialLink.innerHTML = `<i class="fab fa-${current.icon}"></i>`;
 
-  gsap.set(birdIcon, { x: -150, y: 0, opacity: 0, scale: 1 });
+  // Bird side flip if flying right-to-left
+  birdIcon.style.transform = direction === -1 ? "scaleX(-1)" : "scaleX(1)";
+
+  const startX = direction === 1 ? -200 : window.innerWidth + 200;
+  const endX = direction === 1 ? window.innerWidth + 200 : -200;
+
+  gsap.set(birdIcon, { x: startX, y: gsap.utils.random(-30, 40), opacity: 1 });
+
   gsap.to(birdIcon, {
-    duration: 5,
-    x: window.innerWidth + 150,
-    y: gsap.utils.random(-40, 40),
-    opacity: 1,
+    duration: 8, // slower flight
+    x: endX,
     ease: "power1.inOut",
     onComplete: () => {
+      // switch direction + next icon
+      direction *= -1;
       index = (index + 1) % icons.length;
-      setTimeout(flyNext, 1500); // next bird delay
+      setTimeout(flyNext, 1000); // pause before next flight
     },
   });
 }
@@ -314,8 +331,8 @@ function flyNext() {
 flyNext();
 </script>
 
-
-<section id="services">
+<section id="services" style="margin-top:120px;">
+  <!-- Your section content here -->
 
   <h2>OUR CREATIVE SERVICES</h2>
 
