@@ -196,7 +196,9 @@ footer .socials a:hover {
 <!-- ====== Follow Us Section Start ====== -->
 <section class="follow-us-section">
   <div class="social-container">
-    <div class="center-circle">Follow Us</div>
+    <div class="center-circle">
+      <span class="follow-text">Follow Us</span>
+    </div>
 
     <a href="https://facebook.com/zairuqdesignstudio" target="_blank" class="icon fb"><i class="fab fa-facebook-f"></i></a>
     <a href="https://instagram.com/zairuqdesignstudio" target="_blank" class="icon ig"><i class="fab fa-instagram"></i></a>
@@ -214,56 +216,79 @@ footer .socials a:hover {
   justify-content: center;
   align-items: center;
   padding: 60px 0;
-  margin-top: 120px; /* space below sticky header */
+  margin-top: 120px;
   background: #f4f5f7;
 }
 
+/* Only icons rotate, center circle stays fixed */
 .social-container {
   position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  animation: rotate 25s linear infinite;
+  width: 280px;
+  height: 280px;
 }
 
 .center-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 120px;
-  height: 120px;
-  background: #fff;
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  color: #333;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   z-index: 10;
+}
+
+/* Follow Us Text Gradient */
+.follow-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff005a, #ff9500, #1da1f2, #00c853, #8e24aa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Rotating orbit of icons */
+.social-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  border: 1.5px dashed rgba(0,0,0,0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .icon {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 25px;
-  transition: 0.3s;
+  font-size: 22px;
+  text-decoration: none !important;
+  animation: orbit 25s linear infinite;
 }
 
-.icon:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.icon i {
+  text-decoration: none;
 }
 
-/* Icon Colors */
+/* Individual icon colors */
 .fb { background: #1877f2; }
 .ig { background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 .yt { background: #ff0000; }
@@ -271,28 +296,24 @@ footer .socials a:hover {
 .li { background: #0077b5; }
 .wa { background: #25d366; }
 
-/* Icon Positions (Circular Layout) */
-.fb { top: 0; left: 50%; transform: translate(-50%, 0); }
-.ig { top: 20%; right: 0; transform: translate(0, -50%); }
-.wa { bottom: 20%; right: 0; transform: translate(0, 50%); }
-.li { bottom: 0; left: 50%; transform: translate(-50%, 0); }
-.tw { bottom: 20%; left: 0; transform: translate(0, 50%); }
-.yt { top: 20%; left: 0; transform: translate(0, -50%); }
+/* Equal circular orbit positions */
+.fb { top: 0; left: 50%; transform: translate(-50%, 0); animation-delay: 0s; }
+.ig { top: 20%; right: 0; transform: translate(0, -50%); animation-delay: 4s; }
+.wa { bottom: 20%; right: 0; transform: translate(0, 50%); animation-delay: 8s; }
+.li { bottom: 0; left: 50%; transform: translate(-50%, 0); animation-delay: 12s; }
+.tw { bottom: 20%; left: 0; transform: translate(0, 50%); animation-delay: 16s; }
+.yt { top: 20%; left: 0; transform: translate(0, -50%); animation-delay: 20s; }
 
-/* Rotation Animation */
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Smooth hover */
+.icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-/* Keep icons upright while rotating */
-.icon i {
-  animation: counterRotate 25s linear infinite;
-}
-
-@keyframes counterRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
+/* Rotation animation */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateY(-110px) rotate(0deg); }
+  to { transform: rotate(360deg) translateY(-110px) rotate(-360deg); }
 }
 </style>
 
@@ -301,8 +322,6 @@ footer .socials a:hover {
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <!-- ====== Follow Us Section End ====== -->
-
-
 
 <section id="services">
 
