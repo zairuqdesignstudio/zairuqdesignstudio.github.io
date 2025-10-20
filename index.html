@@ -193,95 +193,72 @@ footer .socials a:hover {
 
 <!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
 
-<!-- ====== Flying Bird Social Animation (ZAIRUQ Design Studio) ====== -->
-<div class="bird-fly-animation">
-  <div class="bird-path">
-    <div class="bird-icon" id="birdIcon1">
-      <span class="bird">🕊️</span>
-      <a href="#" target="_blank" id="socialLink1">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-    </div>
-    <div class="bird-icon" id="birdIcon2">
-      <span class="bird">🕊️</span>
-      <a href="#" target="_blank" id="socialLink2">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </div>
+<!-- ====== Center Rotating Social Icons (ZAIRUQ Design Studio) ====== -->
+<div class="center-social-rotation">
+  <a href="#" id="socialLink" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
 </div>
 
-<!-- Font Awesome for icons -->
+<!-- Font Awesome -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 />
 
 <style>
-/* ===== Base Layer Setup ===== */
-.bird-fly-animation {
+.center-social-rotation {
   position: fixed;
-  top: 120px; /* sticky header ke niche */
-  left: 0;
-  width: 100%;
-  height: 250px;
-  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 999;
-}
-
-.bird-path {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-/* ===== Bird + Icon ===== */
-.bird-icon {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 28px;
   pointer-events: auto;
 }
 
-.bird {
-  font-size: 50px;
-  animation: flap 1s ease-in-out infinite;
-}
-
-.bird-icon a {
-  color: #fff;
-  width: 60px;
-  height: 60px;
+.center-social-rotation a {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  font-size: 45px;
+  color: #fff;
   text-decoration: none;
-  font-size: 30px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-.bird-icon a:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px rgba(255,255,255,0.8);
+.center-social-rotation a:hover {
+  transform: scale(1.2) rotate(15deg);
+  box-shadow: 0 0 25px rgba(255,255,255,0.8);
 }
 
-/* ===== Icon Colors ===== */
-.bird-icon .fa-facebook-f { background: #1877f2; }
-.bird-icon .fa-instagram { background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.bird-icon .fa-youtube { background: #ff0000; }
-.bird-icon .fa-twitter { background: #1da1f2; }
-.bird-icon .fa-linkedin-in { background: #0077b5; }
-.bird-icon .fa-whatsapp { background: #25d366; }
+/* Animation effect */
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: rotate(360deg) scale(1.1); opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: rotate(720deg) scale(0.9); opacity: 0; }
+}
 
-/* ===== Bird Flapping ===== */
-@keyframes flap {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+/* Icon Color Themes */
+.fa-facebook-f { background: #1877f2; }
+.fa-instagram { background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.fa-youtube { background: #ff0000; }
+.fa-twitter { background: #1da1f2; }
+.fa-linkedin-in { background: #0077b5; }
+.fa-whatsapp { background: #25d366; }
+
+.center-social-rotation i {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 
@@ -289,6 +266,7 @@ footer .socials a:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
+/* Social Icons Data */
 const icons = [
   { icon: "facebook-f", link: "https://facebook.com/zairuqdesignstudio" },
   { icon: "instagram", link: "https://instagram.com/zairuqdesignstudio" },
@@ -298,50 +276,29 @@ const icons = [
   { icon: "whatsapp", link: "https://wa.me/918000000000?text=Hello%20ZAIRUQ%20Design%20Studio!" }
 ];
 
-let index1 = 0, index2 = 1;
-let direction1 = 1, direction2 = -1;
+const socialLink = document.getElementById("socialLink");
+let index = 0;
 
-const birdIcon1 = document.getElementById("birdIcon1");
-const socialLink1 = document.getElementById("socialLink1");
-const birdIcon2 = document.getElementById("birdIcon2");
-const socialLink2 = document.getElementById("socialLink2");
-
-/* Bird fly function */
-function flyBird(birdIcon, socialLink, index, direction) {
+function showNextIcon() {
   const current = icons[index];
   socialLink.href = current.link;
   socialLink.innerHTML = `<i class="fab fa-${current.icon}"></i>`;
 
-  birdIcon.style.transform = direction === -1 ? "scaleX(-1)" : "scaleX(1)";
+  // reset + animate
+  socialLink.style.animation = "none";
+  void socialLink.offsetWidth; // restart animation
+  socialLink.style.animation = "rotateIcon 6s ease-in-out forwards";
 
-  const startX = direction === 1 ? -150 : window.innerWidth + 150;
-  const endX = direction === 1 ? window.innerWidth + 150 : -150;
-  const randomY = gsap.utils.random(-50, 80);
-
-  gsap.set(birdIcon, { x: startX, y: randomY, opacity: 1 });
-
-  gsap.to(birdIcon, {
-    duration: 12, // slow flight
-    x: endX,
-    y: randomY + gsap.utils.random(-30, 30), // thoda upar-niche move
-    ease: "power1.inOut",
-    onComplete: () => {
-      const nextIndex = (index + 1) % icons.length;
-      const nextDir = direction * -1;
-      flyBird(birdIcon, socialLink, nextIndex, nextDir);
-    }
-  });
+  // next icon after delay
+  index = (index + 1) % icons.length;
+  setTimeout(showNextIcon, 6000);
 }
 
-/* Start both birds */
-flyBird(birdIcon1, socialLink1, index1, direction1);
-flyBird(birdIcon2, socialLink2, index2, direction2);
+showNextIcon();
 </script>
 
 
-
-
-<section id="services" style="margin-top:135px;">
+<section id="services" style="margin-top:140px;">
   <!-- Your section content here -->
 
   <h2>OUR CREATIVE SERVICES</h2>
