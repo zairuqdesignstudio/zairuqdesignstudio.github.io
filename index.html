@@ -192,106 +192,102 @@ footer .socials a:hover {
 </header>
 
 <!-- 🌟 Zairuq Design Studio - Social Media Bubble Section -->
-<section id="social" style="margin-top:130px;" class="social-bubble-section">
-  <div class="bubble-container">
-    <a href="https://www.facebook.com/zairuqdesignstudio" target="_blank" class="bubble fb">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/zairuqdesignstudio" target="_blank" class="bubble ig">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.youtube.com/@zairuqdesignstudio" target="_blank" class="bubble yt">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://wa.me/919978653852" target="_blank" class="bubble wa">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.linkedin.com/company/zairuqdesignstudio" target="_blank" class="bubble li">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://x.com/zairuqdesign" target="_blank" class="bubble tw">
-      <i class="fab fa-x-twitter"></i>
-    </a>
+
+<section style="margin-top:130px;" class="social-follow">
+  <div class="circle-container">
+    <div class="center-circle">
+      <h2>Follow Us</h2>
+    </div>
+    <div class="icon youtube"><i class="fab fa-youtube"></i></div>
+    <div class="icon instagram"><i class="fab fa-instagram"></i></div>
+    <div class="icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+    <div class="icon facebook"><i class="fab fa-facebook-f"></i></div>
+    <div class="icon linkedin"><i class="fab fa-linkedin-in"></i></div>
+    <div class="icon twitter"><i class="fab fa-twitter"></i></div>
   </div>
 </section>
 
-<!-- 🎨 CSS Section -->
-<style>
-.social-bubble-section {
+
+/* Social Follow Section */
+.social-follow {
+  background: #ffcc00;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
-}
-
-.bubble-container {
+  height: 60vh;
+  overflow: hidden;
   position: relative;
-  width: 350px;
-  height: 200px;
-  margin: 0 auto;
 }
 
-.bubble {
+.circle-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation: rotate 20s linear infinite;
+}
+
+.center-circle {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 140px;
+  height: 140px;
+  background: #fff;
   border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 28px;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.center-circle h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: #222;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+
+.icon:hover {
+  background: #222;
   color: #fff;
-  text-decoration: none; /* removes underline */
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  transform: scale(1.2);
 }
 
-/* Bubble positions (arranged like image) */
-.fb { background: #1877f2; top: 45%; left: 35%; transform: translate(-50%, -50%); }
-.ig { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); top: 20%; left: 55%; transform: translate(-50%, -50%); }
-.yt { background: #ff0000; top: 62%; left: 55%; transform: translate(-50%, -50%); }
-.wa { background: #25d366; top: 62%; left: 25%; transform: translate(-50%, -50%); }
-.li { background: #0077b5; top: 20%; left: 25%; transform: translate(-50%, -50%); }
-.tw { background: #000; top: 5%; left: 35%; transform: translate(-50%, -50%); }
+/* Position of each icon around the circle */
+.icon.youtube   { top: 0; left: 50%; transform: translate(-50%, 0); color: #FF0000; }
+.icon.instagram { top: 25%; right: 0; transform: translate(0, -50%); color: #E4405F; }
+.icon.whatsapp  { top: 75%; right: 0; transform: translate(0, -50%); color: #25D366; }
+.icon.facebook  { bottom: 0; left: 50%; transform: translate(-50%, 0); color: #1877F2; }
+.icon.linkedin  { top: 75%; left: 0; transform: translate(0, -50%); color: #0077B5; }
+.icon.twitter   { top: 25%; left: 0; transform: translate(0, -50%); color: #1DA1F2; }
 
-/* Hover animation */
-.bubble:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+/* Circle Rotation Animation */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-.bubble {
-  animation: float 3s ease-in-out infinite;
-}
-.bubble:nth-child(2) { animation-delay: 0.2s; }
-.bubble:nth-child(3) { animation-delay: 0.4s; }
-.bubble:nth-child(4) { animation-delay: 0.6s; }
-.bubble:nth-child(5) { animation-delay: 0.8s; }
-.bubble:nth-child(6) { animation-delay: 1s; }
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .bubble-container {
-    width: 250px;
-    height: 180px;
-  }
-  .bubble {
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-  }
-}
-</style>
-
-<!-- Font Awesome CDN -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
+.
 <section id="services">
 
   <h2>OUR CREATIVE SERVICES</h2>
